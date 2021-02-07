@@ -388,6 +388,7 @@ PRODUCT_PACKAGES += \
     CarrierConfigOverlayPeridot \
     FrameworkOverlayPeridot \
     LineageSDKOverlayPeridot \
+    LineageSystemUIOverlayPeridot \
     SecureElementOverlayPeridot \
     SettingsOverlayPeridot \
     SettingsProviderOverlayPeridotPOCO \
