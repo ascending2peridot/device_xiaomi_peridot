@@ -194,10 +194,6 @@ class XiaomiPeridotUdfpsHander : public UdfpsHandler {
             req.base.disp_id = MI_DISP_PRIMARY;
             req.local_hbm_value = LHBM_TARGET_BRIGHTNESS_OFF_FINGER_UP;
             ioctl(disp_fd_.get(), MI_DISP_IOCTL_SET_LOCAL_HBM, &req);
-
-            if (!enrolling) {
-                setFodStatus(FOD_STATUS_OFF);
-            }
         }
 
         /* vendorCode
@@ -212,25 +208,6 @@ class XiaomiPeridotUdfpsHander : public UdfpsHandler {
 
     void cancel() {
         LOG(INFO) << __func__;
-        enrolling = false;
-
-        setFodStatus(FOD_STATUS_OFF);
-    }
-
-    void preEnroll() {
-        LOG(INFO) << __func__;
-        enrolling = true;
-    }
-
-    void enroll() {
-        LOG(INFO) << __func__;
-        enrolling = true;
-    }
-
-    void postEnroll() {
-        LOG(INFO) << __func__;
-        enrolling = false;
-
         setFodStatus(FOD_STATUS_OFF);
     }
 
